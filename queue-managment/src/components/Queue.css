@@ -1,0 +1,194 @@
+/* Paleta baseada na sua Home */
+:root{
+  --color-bg:#F5F7FB;
+  --color-surface:#ffffff;
+  --color-text:#0B1221;
+  --color-muted:#6B7280;
+  --color-primary:#023E8A;
+  --color-primary-600:#0077B6;
+  --color-accent:#00C2A8;
+  --radius:14px;
+  --shadow:0 10px 25px rgba(0,0,0,.08);
+  --container:1100px;
+  --gap:24px;
+}
+html[data-theme="dark"]{
+  --color-bg:#121826;
+  --color-surface:#101523;
+  --color-text:#E6E8EF;
+  --color-muted:#9AA4B2;
+  --shadow:0 10px 25px rgba(0,0,0,.35);
+}
+.page{background:var(--color-bg); color:var(--color-text); min-height:100vh}
+.container{max-width:var(--container); margin:0 auto; padding:0 20px}
+
+.nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(12px);
+  background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,.6));
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+html[data-theme="dark"] .nav{
+  background:linear-gradient(to bottom, rgba(16,21,35,.9), rgba(16,21,35,.6));
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px; padding:0 20px}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700}
+.brand-logo{width:34px; height:34px; border-radius:8px; background:linear-gradient(135deg,var(--color-primary),var(--color-accent)); box-shadow:var(--shadow)}
+.nav-center{display:flex; gap:18px; align-items:center}
+.nav-center a{padding:8px 12px; border-radius:10px; color:var(--color-muted); text-decoration:none}
+.nav-center a.active, .nav-center a:hover{color:var(--color-text); background:rgba(2,62,138,.12)}
+.nav-right{display:flex; align-items:center; gap:10px}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 16px; border-radius:12px; border:1px solid rgba(0,0,0,.08); cursor:pointer; font-weight:600; background:#fff}
+.btn.primary{background:var(--color-primary); color:#fff; border-color:transparent}
+.btn.primary:hover{background:var(--color-primary-600)}
+.btn.ghost{background:transparent; color:var(--color-text)}
+.role-switch{padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,.1); background:#fff}
+html[data-theme="dark"] .btn{border-color:rgba(255,255,255,.12); background:#151b2c}
+
+/* Hero */
+.hero{padding:32px 0 8px}
+.hero.small .title{font-size:clamp(22px,3.2vw,34px)}
+.title{font-size:clamp(28px,4vw,48px); margin:10px 0 12px; line-height:1.15}
+.subtitle{color:var(--color-muted); font-size:1.05rem; max-width:65ch}
+
+/* Sections e Cards */
+section{padding:32px 0}
+.section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:16px; flex-wrap:wrap}
+.section-title{font-size:1.4rem; margin:0}
+.section-desc{color:var(--color-muted); max-width:70ch}
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:var(--gap)}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--gap)}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:var(--gap)}
+.card{background:var(--color-surface); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.04)}
+.badge{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(2,62,138,.12); color:var(--color-primary); font-weight:700; font-size:.78rem}
+.muted{color:var(--color-muted)}
+.actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+
+/* Inputs */
+label{display:block; font-weight:600; margin-bottom:6px}
+input, select, textarea{width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(0,0,0,.12); background:#fff; color:var(--color-text)}
+textarea{min-height:90px}
+html[data-theme="dark"] input, html[data-theme="dark"] select, html[data-theme="dark"] textarea{background:#0f1525; border-color:rgba(255,255,255,.15); color:var(--color-text)}
+
+/* Chips de horário */
+.chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+.chip{padding:8px 12px; border-radius:999px; border:1px solid rgba(0,0,0,.12); background:#fff; cursor:pointer}
+.chip.active, .chip:hover{background:rgba(2,62,138,.12); border-color:rgba(2,62,138,.25)}
+
+/* Lista da fila / agendados */
+.list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.list li{display:flex; align-items:center; gap:12px; padding:10px; border:1px dashed rgba(0,0,0,.08); border-radius:12px; background:rgba(255,255,255,.6)}
+.ticket{font-weight:800; color:var(--color-primary)}
+.row-actions{margin-left:auto; display:flex; gap:8px}
+
+/* Overlay NPS */
+.overlay{position:fixed; inset:0; background:rgba(0,0,0,.4); display:flex; align-items:center; justify-content:center; padding:20px}
+.overlay-content{max-width:560px; width:100%}
+
+/* Responsivo */
+@media (max-width: 980px){
+  .grid-3{grid-template-columns:1fr 1fr}
+  .grid-4{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 640px){
+  .nav-center{display:none}
+  .grid-2, .grid-3, .grid-4{grid-template-columns:1fr}
+}
+
+
+
+/* Link da navbar com cara de link */
+.linkbtn{
+  background: transparent;
+  border: 0;
+  color: var(--color-muted);
+  padding: 3px 2px;
+  border-radius: 1px;
+  cursor: pointer;
+  font: inherit;
+}
+.linkbtn:hover{
+  color: var(--color-text);
+  background: rgba(2,62,138,.12);
+}
+
+/* Botão outline */
+.btn.outline{
+  background: transparent;
+  color: var(--color-primary);
+  
+}
+.btn.outline:hover{
+  background: rgba(2,62,138,.08);
+}
+
+/* Botão ghost reaproveita .btn.ghost existente */
+.btn.ghost{
+  background: transparent;
+  color: var(--color-text);
+  
+}
+html[data-theme="dark"] .btn.ghost{
+  border-color: rgba(255,255,255,.15);
+}
+
+
+/* ===== Formulários compactos dentro do card ===== */
+.compact-form {
+  --field-max-width: 92%;   /* controle fino da largura dos inputs dentro da coluna */
+  --field-min-height: 20px; /* altura mais discreta */
+  --field-gap: 10px;         /* espaço vertical entre label e input */
+}
+
+/* garante que a grade continue responsiva */
+.compact-form .grid-2 { 
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: var(--gap);
+}
+
+/* wrapper por campo */
+.compact-form .field { 
+  display: flex; 
+  flex-direction: column; 
+  gap: var(--field-gap); 
+}
+
+/* controla a largura útil do controle dentro da coluna */
+.compact-form .control { 
+  max-width: var(--field-max-width); 
+}
+
+/* inputs menores e proporcionais */
+.compact-form input,
+.compact-form select,
+.compact-form textarea {
+  min-height: var(--field-min-height);
+  padding: 10px 12px;             /* um pouco menor que o padrão global */
+  font-size: 0.95rem;             /* levemente menor */
+  border-radius: 10px;
+  margin-bottom: 0;               /* o espaçamento vem do .field gap */
+}
+
+/* Foco consistente e elegante */
+.compact-form input:focus,
+.compact-form select:focus,
+.compact-form textarea:focus {
+  outline: none;
+  border-color: rgba(2,62,138,.45);
+  box-shadow: 0 0 0 3px rgba(2,62,138,.10);
+}
+
+/* Ajuste de títulos/labels dentro do card para ficar proporcional */
+.compact-form label {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* Responsivo: em telas pequenas, use 100% da coluna para facilitar o toque */
+@media (max-width: 640px){
+  .compact-form .grid-2 { grid-template-columns: 1fr; }
+  .compact-form .control { max-width: 100%; }
+  .compact-form input,
+  .compact-form select { min-height: 46px; font-size: 1rem; }
+}
