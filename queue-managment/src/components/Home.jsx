@@ -86,7 +86,11 @@ function Home() {
 
             <div className="hero-media" aria-label="Mockup do sistema">
               <div className="media-placeholder">
-                [ Espaço para imagem do sistema / mockup ]
+                <img
+                  src="/vista-superior-no-conceito-de-psicologo-online.jpg"
+                  alt="Mockup do sistema"
+                  className="hero-image"
+                />
               </div>
             </div>
           </div>

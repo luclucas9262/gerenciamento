@@ -145,3 +145,11 @@ html[data-theme="dark"] .footer-inner{border-color:rgba(255,255,255,.08)}
 .link.asbtn:hover{
   text-decoration: underline;
 }
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem preencher sem distorcer */
+  border-radius: 8px; /* Mantém bordas arredondadas */
+}
