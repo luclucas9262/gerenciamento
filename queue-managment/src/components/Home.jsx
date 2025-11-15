@@ -83,16 +83,6 @@ function Home() {
                 <button className="btn ghost" onClick={() => goToAnchor("modulos")}>Explorar Módulos</button>
               </div>
             </div>
-
-            <div className="hero-media" aria-label="Mockup do sistema">
-              <div className="media-placeholder">
-                <img
-                  src="/vista-superior-no-conceito-de-psicologo-online.jpg"
-                  alt="Mockup do sistema"
-                  className="hero-image"
-                />
-              </div>
-            </div>
           </div>
         </section>
 
@@ -109,7 +99,8 @@ function Home() {
             <div className="card">
               <span className="badge">Contexto</span>
               <h3>Desafio</h3>
-              <p className="muted"></p>
+              <p className="muted">O sistema foi desenvolvido após identificar diversos desafios enfrentados por clínicas médicas, como dificuldades de acesso a consultas especializadas, falhas na infraestrutura, problemas de agendamento, limitações na telemedicina e ineficiências em sistemas já existentes. Com isso, o foco atual está no aperfeiçoamento do módulo de gestão de filas e confirmação de presença, complementando funcionalidades do sistema para melhorar a organização dos atendimentos e o controle das filas de espera.
+O tema foi escolhido em consenso pela relevância para empresas da área da saúde, oferecendo uma solução que otimiza tempo, aumenta a produtividade, melhora a gestão administrativa e garante segurança dos dados. O sistema se consolida não apenas como uma plataforma de gestão, mas como um recurso que permite às clínicas focarem no atendimento humanizado e de maior qualidade ao paciente.</p>
 
               <h3>Objetivos</h3>
               <ul className="muted">
@@ -118,12 +109,23 @@ function Home() {
                 <li>Mensurar satisfação com NPS</li>
               </ul>
             </div>
-
-            <div className="card">
-              <span className="badge">Imagem</span>
-              <div className="media-placeholder" style={{ height: 280 }}>
-                [ Espaço para diagrama/fluxo ]
+            <div className="card-image">
+              <div className="media-placeholder" style={{ height: 580 }}>
+                <img src="/Diagrama.png"alt="Mockup do sistema"className="hero-image"/>
               </div>
+            </div>
+          </div>
+            <hr />
+          <div className="grid-1  ">
+            <div className="card">
+              <h3>Desensolvimento</h3>
+              <p className="muted">O sistema foi desenvolvido para resolver problemas comuns em clínicas, como desorganização de filas, atrasos, falta de controle de presença e baixa eficiência no atendimento. A partir do levantamento de requisitos e análises de fluxos, o projeto evoluiu para a criação de um módulo de Gestão de Filas e NPS totalmente integrado.
+
+No front-end, foram implementadas interfaces responsivas em React/TypeScript, permitindo que pacientes confirmem presença e acompanhem a fila em tempo real, enquanto funcionários gerenciam atendimentos, prioridades e métricas operacionais.
+
+No back-end, a arquitetura serverless da AWS (API Gateway, Lambda e DynamoDB) garantiu escalabilidade, segurança e baixo custo, com autenticação por UUID e lógica otimizada de atualização da fila. O banco foi modelado para consultas rápidas e armazenamento flexível.
+
+Foram implementados também dashboards com métricas como tempo de espera, taxa de ausência e NPS, permitindo análises gerenciais imediatas. O resultado é um sistema ágil, seguro e voltado a melhorar a experiência do paciente e a eficiência operacional das clínicas.</p>
             </div>
           </div>
         </section>
@@ -176,25 +178,27 @@ function Home() {
 
           <div className="grid-4">
             <div className="card member">
-              <div className="avatar"></div>
+              <div className="avatar">
+              <img src="/ana.png" alt="Mockup do sistema" className="hero-image"/>
+              </div>
               <h3>Ana Beatriz</h3>
               <div className="role"></div>
             </div>
 
             <div className="card member">
-              <div className="avatar"></div>
+              <div className="avatar"><img src="/yuichi.png" alt="Mockup do sistema" className="hero-image"/></div>
               <h3>Carlos Yuichi</h3>
               <div className="role"></div>
             </div>
 
             <div className="card member">
-              <div className="avatar"></div>
+              <div className="avatar"><img src="/lucas.png" alt="Mockup do sistema" className="hero-image"/></div>
               <h3>Lucas Eleuterio</h3>
               <div className="role"></div>
             </div>
 
             <div className="card member">
-              <div className="avatar"></div>
+              <div className="avatar"><img src="/sabrina.png" alt="Mockup do sistema" className="hero-image"/></div>
               <h3>Sabrina Arfelli</h3>
               <div className="role"></div>
             </div>
