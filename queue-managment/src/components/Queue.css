@@ -192,3 +192,96 @@ html[data-theme="dark"] .btn.ghost{
   .compact-form input,
   .compact-form select { min-height: 46px; font-size: 1rem; }
 }
+
+
+/* =========================
+   Layout especial - Recepcionista (MEIO-TERMO)
+   ========================= */
+
+/* Container com largura confortável só nesta visão */
+.recep-layout.container, 
+.recep-layout .container { 
+  max-width: 1120px;          /* um pouco menor que 1200, mais centrado */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Painel: 2 colunas em telas largas, 1 em médias/pequenas */
+.recep-layout .grid-4 {
+  grid-template-columns: 1fr 1fr;   /* meio-termo: 2 colunas */
+  gap: 28px;
+}
+
+@media (max-width: 980px){
+  .recep-layout .grid-4 { grid-template-columns: 1fr; }  /* empilha em 1 col */
+}
+
+/* Cards com respiro adequado */
+.recep-layout .card {
+  padding: 26px 28px;               /* mais respiro, sem exagero */
+  border-radius: 16px;
+}
+
+/* =========================
+   Recepção – centralizar conteúdo
+   ========================= */
+
+/* 1) Dá respiro lateral no main da recepção */
+.recep-layout {
+  /* padding lateral do "main" quando em recepção */
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* 2) Cria um "container interno" para as seções:
+      tudo que é filho direto de section (títulos, grids, cards)
+      recebe largura máxima e centralização */
+.recep-layout section > .section-head,
+.recep-layout section > .grid-4,
+.recep-layout section > .grid-3,
+.recep-layout section > .grid-2,
+.recep-layout section > .card,
+.recep-layout section > .gallery {
+  max-width: 1080px;         /* MEIO-TERMO: nem encostado, nem estreito demais */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3) Hero e subtítulo também seguem o mesmo limite para consistência */
+.recep-layout .hero.small,
+.recep-layout .subtitle {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 8px;         /* leve respiro interno */
+  padding-right: 8px;
+}
+
+/* 4) As listas dentro de cards também centralizam e respeitam o limite */
+.recep-layout .card > .list {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 5) Espaço lateral adicional em telas muito largas (opcional) */
+@media (min-width: 1440px){
+  .recep-layout { padding-left: 32px; padding-right: 32px; }
+}
+
+/* 6) Mobile mantém conforto sem “grudar” nas bordas */
+@media (max-width: 640px){
+  .recep-layout { padding-left: 16px; padding-right: 16px; }
+  .recep-layout section > .section-head,
+  .recep-layout section > .grid-4,
+  .recep-layout section > .grid-3,
+  .recep-layout section > .grid-2,
+  .recep-layout section > .card,
+  .recep-layout section > .gallery,
+  .recep-layout .card > .list,
+  .recep-layout .hero.small,
+  .recep-layout .subtitle {
+    max-width: 100%;        /* em mobile, usa a largura disponível */
+  }
+}
+

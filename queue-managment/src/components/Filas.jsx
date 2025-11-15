@@ -389,7 +389,7 @@ export default function Filas() {
         </div>
       </nav>
 
-      <main className="container">
+      <main className="recep-layout">
         <header className="hero small">
           <h1 className="title">Sistema de Gerenciamento de Filas & Agendamentos</h1>
           <p className="subtitle">Fluxo completo com dados locais: cadastro, agendamento, check-in e fila em tempo real.</p>
@@ -446,35 +446,58 @@ export default function Filas() {
         )}
 
         {role === 'Médico' && (
-          <>
-            <Section id="meus" title="Meus Atendimentos (Hoje)" desc="Acompanhe e finalize seus atendimentos.">
-              <div className="card">
-                <ul className="list">
-                  {db.getQueue()
-                    .filter(q => ['chamado','em_atendimento'].includes(q.status))
-                    .map(q => {
-                      const ap = db.getAppointments().find(a => a.id === q.appointmentId);
-                      const p = db.getPatients().find(x => x.id === q.patientId);
-                      const pro = pros.find(x => x.id === q.professionalId);
-                      return (
-                        <li key={q.id}>
-                          <div className="ticket">{q.ticket}</div>
-                          <div>
-                            <strong>{p?.name}</strong>
-                            <div className="muted">{ap?.time} · {pro?.name}</div>
-                          </div>
-                          <div className="row-actions">
-                            <button className="btn primary" onClick={() => db.setQueueStatus(q.id, 'em_atendimento')}>Atender</button>
-                            <button className="btn" onClick={() => db.setQueueStatus(q.id, 'finalizado')}>Finalizar</button>
-                          </div>
-                        </li>
-                      );
-                    })}
-                </ul>
-              </div>
-            </Section>
-          </>
-        )}
+  <Section
+    id="meus"
+    title="Meus Atendimentos (Hoje)"
+    desc="Acompanhe e finalize seus atendimentos."
+  >
+    <div className="card">
+      <ul className="list">
+        {db
+          .getQueue()
+          .filter(q => ['chamado', 'em_atendimento'].includes(q.status))
+          .map(q => {
+            const ap = db.getAppointments().find(a => a.id === q.appointmentId);
+            const p = db.getPatients().find(x => x.id === q.patientId);
+            const pro = pros.find(x => x.id === q.professionalId);
+
+            return (
+              <li key={q.id}>
+                <div className="ticket">{q.ticket}</div>
+
+                <div>
+                  <div className="item-header">
+                    <strong>{p?.name ?? 'Paciente'}</strong>
+                  </div>
+
+                  <div className="muted">
+                    {ap?.time ?? '--:--'} · {pro?.name ?? 'Profissional'}
+                  </div>
+                </div>
+
+                <div className="row-actions">
+                  <button
+                    className="btn primary"
+                    onClick={() => db.setQueueStatus(q.id, 'em_atendimento')}
+                  >
+                    Atender
+                  </button>
+
+                  <button
+                    className="btn"
+                    onClick={() => db.setQueueStatus(q.id, 'finalizado')}
+                  >
+                    Finalizar
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+      </ul>
+    </div>
+  </Section>
+)}
+
       </main>
     </div>
   );
